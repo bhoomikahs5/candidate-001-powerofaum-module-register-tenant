@@ -1,0 +1,24 @@
+{
+  "version": 2,
+  "public": false,
+  "builds": [
+    { "src": "index.js", "use": "@vercel/node" }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/$1.js"
+    }
+  ],
+  "env": {
+    "NODE_ENV": "production"
+  },
+  "probes": [
+    {
+      "path": "/",
+      "mustContain": "Welcome"
+    }
+  ],
+  "gitForkProtection": true,
+  "sourceProtection": true
+}
